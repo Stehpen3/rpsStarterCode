@@ -1,14 +1,7 @@
-// Task 1: Create a function that randomly chooses among 'rock', 'paper', or 'scissors'.
 var generateComputerChoice = function () {
-    // Task 1, Step 1: Create an array with three elements ("rock", "paper" and "scissors").
-
-    // Task 1, Step 2: Use the JavaScript Math function to generate a random whole
-    // number between 0 and 2.
-
-    // Task 1, Step 3: Use this randomly generated number to pull a value from the
-    // array (eg myArray[ranomNum])
-
-    // Task 1, Step 4: return this new value
+var array =["rock","paper","scissors"]
+var randomNum = (Math.round(Math.random()*2))
+return array[randomNum]
 };
 
 // Task 2: Create a function that compares the userChoice and the computerChoice
@@ -16,24 +9,52 @@ var generateComputerChoice = function () {
 var pickWinner = function (userChoice, computerChoice) {
     console.log("user choice: " + userChoice);
     console.log("computer choice: " + computerChoice);
-    // Task 2, Step 1: Create an "if/else if/else" statement that compares the
-    // userChoice and computerChoice under any possible game outcome.
-
-    // Task 2, Step 2: Depending on who is the winner of the game console.log
-    // either "user wins", "computer wins" or "draw"
-
-    // Task 4: Show `computerChoice` in HTML after the words "Computer's choice:"
-    // Task 5: Show the winner in HTML after the word "Winner:"
+ if (userChoice == ROCK) {
+       if (computerChoice == ROCK) {
+           outcome = DRAW;
+       }
+       else if (computerChoice == PAPER) {
+           outcome = COMPUTER_WINS;
+       }
+       else {
+           outcome = DRAW;
+       }
+    }
+    else if (userChoice == PAPER) {
+       if (computerChoice == ROCK) {
+           outcome = USER_WINS;
+       }
+       else if (computerChoice == PAPER) {
+           outcome = DRAW;
+       }
+       else {
+           outcome = COMPUTER_WINS;
+       }
+    }
+    else {
+       if (computerChoice == ROCK) {
+           outcome = DRAW;
+       }
+       else if (computerChoice == PAPER) {
+           outcome = USER_WINS;
+       }
+       else {
+           outcome = DRAW;
+       }
+    }
+    
+    $('#computer-choice').text('The computer picked ' + computerChoice);
+    $('#winner').text('Outcome: ' + outcome);
 };
 
 /* DOCUMENT READY: Everything inside this function will happen after
    the user's browser has finished loading the webpage. */
 $(document).ready(function() {
-
+    console.log("here")
     // This line calls the `generateComputerChoice` function and assigns its
     // return value to the variable `computerChoice`.
     var computerChoice = generateComputerChoice();
-
+    console.log(computerChoice)
     // This line sets `userChoice` variable to 'rock'. This value can be changed
     // manually when testing in the console.
     var userChoice = "rock";
